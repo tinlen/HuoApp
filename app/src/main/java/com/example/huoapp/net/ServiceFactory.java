@@ -14,9 +14,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceFactory {
     private final Gson mGson;
+    private final Retrofit retrofit;
 
     private ServiceFactory(){
         mGson = new Gson();
+
+        retrofit = new Retrofit.Builder()
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create(mGson))
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
     }
 
     private static class Holder{
@@ -37,12 +44,8 @@ public class ServiceFactory {
             e.printStackTrace();
         }
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(getOkHttpClient())
-                .addConverterFactory(GsonConverterFactory.create(mGson))
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
+        retrofit.newBuilder().baseUrl(baseUrl);
+
         return retrofit.create(serviceClass);
     }
 
