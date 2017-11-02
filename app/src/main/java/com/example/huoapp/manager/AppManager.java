@@ -29,7 +29,7 @@ public class AppManager {
         return instance;
     }
 
-    public int size() { return activityStack.size();}
+    public int   size() { return activityStack.size();}
 
     public synchronized Activity getForwardActivity(){
         return size() > 0 ? activityStack.get(size() - 1) : null;
