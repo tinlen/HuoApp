@@ -48,7 +48,7 @@ public class AppManager {
     /**
      * 结束指定的Activity
      */
-    public void finishActivity(Activity activity) {
+    public synchronized void finishActivity(Activity activity) {
         if (activity != null) {
             activityStack.remove(activity);
             activity.finish();
@@ -59,7 +59,7 @@ public class AppManager {
     /**
      * 结束指定类名的Activity
      */
-    public void finishActivity(Class<?> cls) {
+    public synchronized void finishActivity(Class<?> cls) {
         for (Activity activity : activityStack) {
             if (activity.getClass().equals(cls)) {
                 finishActivity(activity);
@@ -70,7 +70,7 @@ public class AppManager {
     /**
      * 结束所有Activity
      */
-    public void finishAllActivity() {
+    public synchronized void finishAllActivity() {
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (null != activityStack.get(i)) {
                 activityStack.get(i).finish();
@@ -83,7 +83,7 @@ public class AppManager {
      * 退出应用程序
      */
     @SuppressWarnings("deprecation")
-    public void AppExit(Context context) {
+    public synchronized void exit(Context context) {
         try {
             finishAllActivity();
             ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
