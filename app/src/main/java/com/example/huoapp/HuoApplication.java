@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.facebook.stetho.Stetho;
+import com.lzy.okgo.OkGo;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -25,6 +26,8 @@ public class HuoApplication extends Application{
         initLeakCanary();
         initLog();
         initStetho();
+
+        OkGo.getInstance().init(this);
     }
 
     private void initStetho() {
