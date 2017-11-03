@@ -1,6 +1,7 @@
 package com.example.huoapp.base.baseActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -51,6 +52,9 @@ public abstract class BaseActivity extends AppCompatActivity{
             }
         }
         super.onCreate(savedInstanceState);
+
+        //竖屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         if (getContentViewLayoutId() != 0){
             setContentView(getContentViewLayoutId());
@@ -139,7 +143,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @return
      */
     private boolean toggleOverridePendingTransition() {
-        return true;
+        return false;
     }
 
 

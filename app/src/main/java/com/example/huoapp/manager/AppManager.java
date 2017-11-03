@@ -83,12 +83,11 @@ public class AppManager {
      * 退出应用程序
      */
     @SuppressWarnings("deprecation")
-    public synchronized void exit(Context context) {
+    public synchronized void exit() {
         try {
             finishAllActivity();
-            ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            activityManager.restartPackage(context.getPackageName());
-            System.exit(0);
+            System.gc();
+            android.os.Process.killProcess(android.os.Process.myPid());
         } catch (Exception e) {
             e.printStackTrace();
         }
