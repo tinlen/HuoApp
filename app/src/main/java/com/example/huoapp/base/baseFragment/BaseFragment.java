@@ -38,6 +38,8 @@ public abstract class BaseFragment extends Fragment{
         }
     }
 
+    protected abstract int getContentViewLayoutId();
+
     protected void getBundleExtras(Bundle bundle) {}
 
     private boolean isBindEventBusHere() {
@@ -64,7 +66,7 @@ public abstract class BaseFragment extends Fragment{
 
     protected abstract void initViewsAndEvents(Bundle savedInstanceState);
 
-    protected abstract int getContentViewLayoutId();
+
 
     @Override
     public void onDestroy() {

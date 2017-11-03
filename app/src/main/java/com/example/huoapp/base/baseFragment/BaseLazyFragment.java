@@ -1,5 +1,8 @@
 package com.example.huoapp.base.baseFragment;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+
 /**
  * Created by tinle on 2017/11/2.
  */
@@ -10,6 +13,13 @@ public abstract class BaseLazyFragment extends BaseFragment {
     private boolean isFirstVisible = true;
     private boolean isFirstInvisible = true;
     private boolean isPrepared;
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        initPrepare();
+    }
 
     @Override
     public void onResume() {
@@ -77,5 +87,10 @@ public abstract class BaseLazyFragment extends BaseFragment {
      */
     private void onFirstUserInvisible() {
         // here we do not recommend do something
+    }
+
+    @Override
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
+
     }
 }

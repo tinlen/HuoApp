@@ -61,4 +61,5 @@ public class HuoViewPager extends ViewPager {
     public boolean canScrollHorizontally(int direction) {
         return this.canScroll?super.canScrollHorizontally(direction):false;
     }
+
 }

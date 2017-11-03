@@ -4,15 +4,28 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseActivity;
 import com.example.huoapp.manager.AppManager;
+import com.example.huoapp.model.TabEntity;
+import com.example.huoapp.widget.HuoViewPager;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.SegmentTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.lzy.okgo.OkGo;
 import com.socks.library.KLog;
 
+import java.util.ArrayList;
+
+import butterknife.BindView;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnNeverAskAgain;
 import permissions.dispatcher.OnPermissionDenied;
@@ -22,8 +35,23 @@ import permissions.dispatcher.RuntimePermissions;
 
 @RuntimePermissions
 public class MainActivity extends BaseActivity {
+    @BindView(R.id.vp_main)
+    HuoViewPager vpMain;
+    @BindView(R.id.tab_layout)
+    CommonTabLayout tabLayout;
     private static long DOUBLE_CLICK_TIME = 0L;
     private int position = 0;
+
+    private ArrayList<Fragment> mFragments = new ArrayList<>();
+    private String[] mTitles = {"游戏", "开服", "搜索", "我的"};
+    private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
+
+    private int[] mIconUnselectIds = {
+            R.mipmap.ic_launcher, R.mipmap.ic_launcher,
+            R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+    private int[] mIconSelectIds = {
+            R.mipmap.ic_launcher, R.mipmap.ic_launcher,
+            R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
     @Override
     protected int getContentViewLayoutId() {
@@ -33,6 +61,69 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         MainActivityPermissionsDispatcher.getPermissionWithPermissionCheck(this);
+
+        for (String title : mTitles){
+            mFragments.add(SimpleFragment.newInstance(title));
+        }
+
+        for (int i = 0; i < mTitles.length; i++) {
+            mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
+        }
+
+        vpMain.setOffscreenPageLimit(mTitles.length);
+        vpMain.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+
+        tabLayout.setTabData(mTabEntities);
+
+        vpMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.setCurrentTab(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                vpMain.setCurrentItem(position,false);//false去除切换动画
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+
+            }
+        });
+    }
+
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mTitles[position];
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
     }
 
     @Override
