@@ -4,9 +4,12 @@ import android.app.Application;
 import android.content.Context;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.example.huoapp.app.Huo;
 import com.facebook.stetho.Stetho;
-import com.lzy.okgo.OkGo;
+import com.socks.library.KLog;
 import com.squareup.leakcanary.LeakCanary;
+
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Created by tinle on 2017/11/2.
@@ -22,12 +25,32 @@ public class HuoApplication extends Application{
 
         context = this;
 
+        initApp();
+
         initAndroidUtil();
         initLeakCanary();
         initLog();
         initStetho();
 
-        OkGo.getInstance().init(this);
+    }
+
+    private void initApp() {
+
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(
+                new HttpLoggingInterceptor.Logger() {
+                    @Override
+                    public void log(String message) {
+                        KLog.i(message);
+                    }
+                }
+        );
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        Huo.init(this)
+                .withApiHost("服务器地址")
+                .withInterceptor(loggingInterceptor)
+                .configure();
+
     }
 
     private void initStetho() {
