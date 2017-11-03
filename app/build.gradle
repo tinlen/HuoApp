@@ -41,6 +41,7 @@ dependencies {
     compile 'com.lzy.net:okgo:3.0.4'
     compile 'com.lzy.net:okrx2:2.0.2'
     compile 'com.lzy.net:okserver:2.0.5'
+
     compile 'com.github.huosdk:AndroidUtilCode:1.9.7'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.alibaba:arouter-api:1.2.4'
