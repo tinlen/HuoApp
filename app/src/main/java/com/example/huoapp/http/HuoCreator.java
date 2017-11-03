@@ -2,6 +2,7 @@ package com.example.huoapp.http;
 
 import com.example.huoapp.app.ConfigKeys;
 import com.example.huoapp.app.Huo;
+import com.example.huoapp.http.rx.RxHuoService;
 
 import java.util.ArrayList;
 import java.util.WeakHashMap;
@@ -10,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
@@ -54,11 +56,12 @@ public class HuoCreator {
      * 构建全局Retrofit客户端
      */
     private static final class RetrofitHolder {
-        private static final String BASE_URL = "";
+        private static final String BASE_URL = Huo.getConfiguration(ConfigKeys.API_HOST);
         private static final Retrofit RETROFIT_CLIENT = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(OKHttpHolder.OK_HTTP_CLIENT)
                 .addConverterFactory(ScalarsConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
@@ -73,4 +76,15 @@ public class HuoCreator {
     public static HuoService getHuoService() {
         return RestServiceHolder.REST_SERVICE;
     }
+
+
+    private static final class RxRestServiceHolder {
+        private static final RxHuoService REST_SERVICE =
+                RetrofitHolder.RETROFIT_CLIENT.create(RxHuoService.class);
+    }
+
+    public static RxHuoService getRxtHuoService() {
+        return RxRestServiceHolder.REST_SERVICE;
+    }
+
 }

@@ -23,9 +23,6 @@ public final class HuoClient {
     private static final WeakHashMap<String, Object> PARAMS = HuoCreator.getParams();
     private final String URL;
     private final IRequest REQUEST;
-    private final String DOWNLOAD_DIR;
-    private final String EXTENSION;
-    private final String NAME;
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
@@ -34,9 +31,6 @@ public final class HuoClient {
 
     HuoClient(String url,
                Map<String, Object> params,
-               String downloadDir,
-               String extension,
-               String name,
                IRequest request,
                ISuccess success,
                IFailure failure,
@@ -45,9 +39,6 @@ public final class HuoClient {
                Context context){
         this.URL = url;
         PARAMS.putAll(params);
-        this.DOWNLOAD_DIR = downloadDir;
-        this.EXTENSION = extension;
-        this.NAME = name;
         this.REQUEST = request;
         this.SUCCESS = success;
         this.FAILURE = failure;

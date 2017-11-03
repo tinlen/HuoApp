@@ -5,9 +5,15 @@ import android.widget.TextView;
 
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
+import com.example.huoapp.http.HuoCreator;
 import com.socks.library.KLog;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by tinle on 2017/11/3.
@@ -43,6 +49,37 @@ public class SimpleFragment extends BaseLazyFragment {
     protected void onFirstUserVisible() {
         tvTitle.setText(title);
         KLog.i(title,"onFirstUserVisible");
+
+        onRxGet();
+    }
+
+    //TODO: 测试方法
+    private void onRxGet() {
+        Observable<String> observable = HuoCreator.getRxtHuoService().get("cate/cate!getIndexCate.action",null);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        KLog.e(title,s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
     }
 
     @Override

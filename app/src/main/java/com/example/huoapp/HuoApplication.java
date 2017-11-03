@@ -47,7 +47,7 @@ public class HuoApplication extends Application{
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         Huo.init(this)
-                .withApiHost("服务器地址")
+                .withApiHost("https://www.51diandiangou.com/app/")
                 .withInterceptor(loggingInterceptor)
                 .configure();
 
