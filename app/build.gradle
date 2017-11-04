@@ -18,7 +18,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -34,6 +34,7 @@ dependencies {
     implementation 'com.android.support:design:26.0.0'
     //轮播图
     compile 'com.bigkoo:convenientbanner:2.0.5'
+
     compile 'me.drakeet.multitype:multitype:3.3.0'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
@@ -42,8 +43,7 @@ dependencies {
     compile 'com.lzy.net:okrx2:2.0.2'
     compile 'com.lzy.net:okserver:2.0.5'
 
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-
+    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
 
     compile 'com.github.huosdk:AndroidUtilCode:1.9.7'
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -51,6 +51,12 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //沉浸式状态栏
+    compile 'com.github.niorgai:StatusBarCompat:2.1.3'
+
+    //RecyclerView 分割线
+    compile 'com.choices.divider:RecyclerView_Divider:1.0.0'
 
     //调试
     compile 'com.facebook.stetho:stetho:1.5.0'
@@ -69,5 +75,7 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.2'
 
+    //百分比布局库
     compile 'com.android.support:percent:26.0.0'
+
 }
