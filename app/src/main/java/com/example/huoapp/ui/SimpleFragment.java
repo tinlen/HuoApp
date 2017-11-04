@@ -6,12 +6,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
-import com.socks.library.KLog;
 
 import butterknife.BindView;
 
@@ -48,7 +48,7 @@ public class SimpleFragment extends BaseLazyFragment {
     @Override
     protected void onFirstUserVisible() {
         tvTitle.setText(title);
-        KLog.i(title,"onFirstUserVisible");
+        LogUtils.i(title,"onFirstUserVisible");
 
     }
 
@@ -69,24 +69,24 @@ public class SimpleFragment extends BaseLazyFragment {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        Toast.makeText(mContext,response.body(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext,response.body(),Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onError(Response<String> response) {
-
                     }
                 });
     }
 
     @Override
     protected void onUserVisible() {
-        KLog.i(title,"onUserVisible");
+        LogUtils.i(title,"onUserVisible");
     }
 
     @Override
     protected void onUserInvisible() {
-        KLog.i(title,"onUserInvisible");
+        LogUtils.i(title,"onUserInvisible");
+        OkGo.getInstance().cancelTag(this);
     }
 
 }
