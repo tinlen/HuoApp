@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseActivity;
+import com.socks.library.KLog;
 
 import butterknife.BindView;
 
@@ -17,6 +18,8 @@ public class SplashActivity extends BaseActivity {
     @BindView(R.id.tv_count)
     TextView tvCount;
 
+    private int i = 3;
+
     @Override
     protected int getContentViewLayoutId() {
         return R.layout.activity_splash;
@@ -25,10 +28,12 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
 
+
         new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long l) {
-                tvCount.setText((3000-l) / 1000+"秒");
+                i--;
+                tvCount.setText(i+"秒");
             }
 
             @Override
