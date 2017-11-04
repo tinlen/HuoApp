@@ -4,11 +4,12 @@ import android.app.Application;
 import android.content.Context;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.example.huoapp.app.Huo;
 import com.facebook.stetho.Stetho;
+import com.lzy.okgo.OkGo;
 import com.socks.library.KLog;
 import com.squareup.leakcanary.LeakCanary;
 
+import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
@@ -17,13 +18,13 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 public class HuoApplication extends Application{
 
-    public static Context context;
+    private static Context context;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        context = this;
+        context = getApplicationContext();
 
         initApp();
 
@@ -32,6 +33,10 @@ public class HuoApplication extends Application{
         initLog();
         initStetho();
 
+    }
+
+    public static Context getAppContext(){
+        return context;
     }
 
     private void initApp() {
@@ -46,11 +51,10 @@ public class HuoApplication extends Application{
         );
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        Huo.init(this)
-                .withApiHost("https://www.51diandiangou.com/app/")
-                .withInterceptor(loggingInterceptor)
-                .configure();
+        OkGo.getInstance().init(this);
 
+        OkHttpClient.Builder builder = OkGo.getInstance().getOkHttpClient().newBuilder();
+        builder.addInterceptor(loggingInterceptor);
     }
 
     private void initStetho() {

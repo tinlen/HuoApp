@@ -3,9 +3,7 @@ package com.example.huoapp.util;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.example.huoapp.app.Huo;
-
-import org.json.JSONObject;
+import com.example.huoapp.HuoApplication;
 
 /**
  * Created by lun on 2017/11/4.
@@ -19,7 +17,7 @@ public class HuoPreference {
      * Context.getSharedPreferences(String name,int mode)生成name.xml
      */
     private static final SharedPreferences PREFERENCES =
-            PreferenceManager.getDefaultSharedPreferences(Huo.getApplicationContext());
+            PreferenceManager.getDefaultSharedPreferences(HuoApplication.getAppContext());
     private static final String APP_PREFERENCES_KEY = "profile";
 
     private static SharedPreferences getAppPreference() {

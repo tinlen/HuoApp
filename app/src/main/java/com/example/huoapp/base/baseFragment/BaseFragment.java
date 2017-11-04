@@ -1,5 +1,6 @@
 package com.example.huoapp.base.baseFragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +24,7 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends Fragment{
 
     private Unbinder mUnbinder;
+    protected Context mContext;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public abstract class BaseFragment extends Fragment{
         if (isBindEventBusHere()){
             EventBus.getDefault().register(this);
         }
+
+        mContext = getActivity();
     }
 
     protected abstract int getContentViewLayoutId();
