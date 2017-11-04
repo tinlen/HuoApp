@@ -5,8 +5,8 @@ import android.content.Context;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.facebook.stetho.Stetho;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.lzy.okgo.OkGo;
-import com.socks.library.KLog;
 import com.squareup.leakcanary.LeakCanary;
 
 import okhttp3.OkHttpClient;
@@ -23,16 +23,10 @@ public class HuoApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-
         context = getApplicationContext();
-
         initApp();
-
         initAndroidUtil();
-        initLeakCanary();
         initLog();
-        initStetho();
-
     }
 
     public static Context getAppContext(){
@@ -40,21 +34,25 @@ public class HuoApplication extends Application{
     }
 
     private void initApp() {
-
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(
-                new HttpLoggingInterceptor.Logger() {
-                    @Override
-                    public void log(String message) {
-                        KLog.i(message);
-                    }
-                }
-        );
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         OkGo.getInstance().init(this);
 
-        OkHttpClient.Builder builder = OkGo.getInstance().getOkHttpClient().newBuilder();
-        builder.addInterceptor(loggingInterceptor);
+        if (BuildConfig.DEBUG){
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(
+                    new HttpLoggingInterceptor.Logger() {
+                        @Override
+                        public void log(String message) {
+                            LogUtils.i(message);
+                        }
+                    }
+            );
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .addInterceptor(loggingInterceptor)
+                    .addNetworkInterceptor(new StethoInterceptor()).build();
+            OkGo.getInstance().setOkHttpClient(client);
+            initLeakCanary();
+            initStetho();
+        }
     }
 
     private void initStetho() {

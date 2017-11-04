@@ -1,6 +1,7 @@
 package com.example.huoapp.util;
 
-import com.socks.library.KLog;
+
+import com.blankj.utilcode.util.LogUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -39,7 +40,7 @@ public class MD5 {
 
             result = buf.toString();
         } catch (NoSuchAlgorithmException var7) {
-            KLog.e(TAG, new Object[]{"MD5加密失败, ", var7});
+            LogUtils.e(TAG, new Object[]{"MD5加密失败, ", var7});
         }
 
         return result;

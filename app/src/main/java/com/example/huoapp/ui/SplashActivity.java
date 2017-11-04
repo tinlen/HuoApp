@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseActivity;
-import com.socks.library.KLog;
 
 import butterknife.BindView;
 

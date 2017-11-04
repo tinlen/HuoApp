@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseActivity;
 import com.example.huoapp.manager.AppManager;
@@ -20,7 +21,6 @@ import com.example.huoapp.widget.HuoViewPager;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.socks.library.KLog;
 
 import java.util.ArrayList;
 
@@ -130,25 +130,25 @@ public class MainActivity extends BaseActivity {
     //获取多个权限
     @NeedsPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void getPermission(){
-        KLog.i("CAMERA!");
+        LogUtils.i("CAMERA!");
     }
 
     //向用户说明为什么需要这些权限（可选）
     @OnShowRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void showRationaleForCamera(final PermissionRequest request){
-        KLog.i("showRationaleForCamera");
+        LogUtils.i("showRationaleForCamera");
     }
 
     //用户拒绝授权回调（可选）
     @OnPermissionDenied(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void showDeniedForCamera(){
-        KLog.i("OnPermissionDenied");
+        LogUtils.i("OnPermissionDenied");
     }
 
     //用户勾选了“不再提醒”时调用（可选）
     @OnNeverAskAgain(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void showNeverAskForCamera(){
-        KLog.i("OnNeverAskAgain");
+        LogUtils.i("OnNeverAskAgain");
     }
 
     @Override
