@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.huoapp.R;
+import com.example.huoapp.base.baseActivity.BaseSwipeBackActivity;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
@@ -57,7 +58,8 @@ public class SimpleFragment extends BaseLazyFragment {
         tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onGetTest();
+                readyGo(SwipeDemoActivity.class);
+                //onGetTest();
             }
         });
     }

@@ -12,6 +12,7 @@
         android:textColor="@color/colorPrimary"
         android:gravity="center"
         android:background="#f2f2f2"
+        android:text="test"
         android:textSize="20sp"/>
 
 

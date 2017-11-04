@@ -78,4 +78,6 @@ dependencies {
     //百分比布局库
     compile 'com.android.support:percent:26.0.0'
 
+    compile 'com.github.chrisbanes:PhotoView:2.1.3'
+
 }

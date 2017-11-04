@@ -26,6 +26,9 @@
         </activity>
 
         <activity android:name=".ui.MainActivity" android:launchMode="singleTask"/>
+
+        <activity android:name=".ui.SwipeDemoActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
     </application>
 
 </manifest>

@@ -58,6 +58,11 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean toggleOverridePendingTransition() {
+        return false;
+    }
+
+    @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         MainActivityPermissionsDispatcher.getPermissionWithPermissionCheck(this);
 
@@ -157,5 +162,9 @@ public class MainActivity extends BaseActivity {
         if (null != intent){
             position = intent.getIntExtra("position",0);
         }
+    }
+
+    public void switchTab(int position){
+        tabLayout.setCurrentTab(position);
     }
 }

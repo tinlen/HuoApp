@@ -8,5 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SwipeBackLayout">
+        <item name="edge_size">0dp</item>
+    </style>
 
+    <!--右滑返回布局必须加上此主题-->
+    <style name="AppTheme.SwipeBack">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:launchMode">singleTop</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 </resources>

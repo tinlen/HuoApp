@@ -58,6 +58,8 @@ public abstract class BaseActivity extends AppCompatActivity{
 
         if (getContentViewLayoutId() != 0){
             setContentView(getContentViewLayoutId());
+        }else {
+            throw new NullPointerException("LayoutId is null !");
         }
 
 
@@ -142,8 +144,8 @@ public abstract class BaseActivity extends AppCompatActivity{
      * 是否Activity跳转的时候添加动画
      * @return
      */
-    private boolean toggleOverridePendingTransition() {
-        return false;
+    protected boolean toggleOverridePendingTransition() {
+        return true;
     }
 
 

@@ -25,6 +25,11 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean toggleOverridePendingTransition() {
+        return false;
+    }
+
+    @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
 
 
@@ -32,7 +37,7 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onTick(long l) {
                 i--;
-                tvCount.setText(i+"秒");
+                tvCount.setText((i+1)+"秒");
             }
 
             @Override
