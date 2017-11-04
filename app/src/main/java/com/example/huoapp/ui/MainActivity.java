@@ -49,8 +49,8 @@ public class MainActivity extends BaseActivity {
             R.mipmap.ic_launcher, R.mipmap.ic_launcher,
             R.mipmap.ic_launcher, R.mipmap.ic_launcher};
     private int[] mIconSelectIds = {
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+            R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round,
+            R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round};
 
     @Override
     protected int getContentViewLayoutId() {

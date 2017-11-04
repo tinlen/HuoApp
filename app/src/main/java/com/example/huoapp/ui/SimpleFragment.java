@@ -1,6 +1,8 @@
 package com.example.huoapp.ui;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,7 @@ public class SimpleFragment extends BaseLazyFragment {
     private String title;
 
     @BindView(R.id.tv_title)
-    TextView tvTitle;
+    Button tvTitle;
 
     public static SimpleFragment newInstance(String title) {
 
@@ -48,7 +50,16 @@ public class SimpleFragment extends BaseLazyFragment {
         tvTitle.setText(title);
         KLog.i(title,"onFirstUserVisible");
 
-        onGetTest();
+    }
+
+    @Override
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
+        tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onGetTest();
+            }
+        });
     }
 
     //TODO: 测试方法
