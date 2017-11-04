@@ -2,15 +2,20 @@ package com.example.huoapp.ui;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.widget.TextView;
 
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseActivity;
+
+import butterknife.BindView;
 
 /**
  * Created by tinle on 2017/11/3.
  */
 
 public class SplashActivity extends BaseActivity {
+    @BindView(R.id.tv_count)
+    TextView tvCount;
 
     @Override
     protected int getContentViewLayoutId() {
@@ -23,7 +28,7 @@ public class SplashActivity extends BaseActivity {
         new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long l) {
-
+                tvCount.setText((3000-l) / 1000+"秒");
             }
 
             @Override

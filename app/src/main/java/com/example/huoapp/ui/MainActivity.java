@@ -15,6 +15,7 @@ import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseActivity;
 import com.example.huoapp.manager.AppManager;
 import com.example.huoapp.model.TabEntity;
+import com.example.huoapp.ui.adapter.MainPagerAdapter;
 import com.example.huoapp.widget.HuoViewPager;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.SegmentTabLayout;
@@ -71,7 +72,7 @@ public class MainActivity extends BaseActivity {
         }
 
         vpMain.setOffscreenPageLimit(mTitles.length);
-        vpMain.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        vpMain.setAdapter(new MainPagerAdapter(getSupportFragmentManager(), mTitles, mFragments));
 
         tabLayout.setTabData(mTabEntities);
 
@@ -105,27 +106,6 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private class MyPagerAdapter extends FragmentPagerAdapter {
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragments.size();
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mTitles[position];
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragments.get(position);
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -150,25 +130,25 @@ public class MainActivity extends BaseActivity {
     }
 
     //获取多个权限
-    @NeedsPermission({Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA})
+    @NeedsPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void getPermission(){
-        KLog.i("Has get Write external storage!");
+        KLog.i("CAMERA!");
     }
 
     //向用户说明为什么需要这些权限（可选）
-    @OnShowRationale(Manifest.permission.CAMERA)
+    @OnShowRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void showRationaleForCamera(final PermissionRequest request){
         KLog.i("showRationaleForCamera");
     }
 
     //用户拒绝授权回调（可选）
-    @OnPermissionDenied(Manifest.permission.CAMERA)
+    @OnPermissionDenied(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void showDeniedForCamera(){
         KLog.i("OnPermissionDenied");
     }
 
     //用户勾选了“不再提醒”时调用（可选）
-    @OnNeverAskAgain(Manifest.permission.CAMERA)
+    @OnNeverAskAgain(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void showNeverAskForCamera(){
         KLog.i("OnNeverAskAgain");
     }
