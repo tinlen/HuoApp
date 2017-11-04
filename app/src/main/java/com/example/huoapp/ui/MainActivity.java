@@ -18,10 +18,8 @@ import com.example.huoapp.model.TabEntity;
 import com.example.huoapp.ui.adapter.MainPagerAdapter;
 import com.example.huoapp.widget.HuoViewPager;
 import com.flyco.tablayout.CommonTabLayout;
-import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.lzy.okgo.OkGo;
 import com.socks.library.KLog;
 
 import java.util.ArrayList;
