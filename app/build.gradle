@@ -78,6 +78,8 @@ dependencies {
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.0.1"
 
     implementation 'com.google.code.gson:gson:2.8.2'
+    //日志
+    compile 'com.github.zhaokaiqiang.klog:library:1.4.0'
 
     //数据库orm
     compile 'org.litepal.android:core:1.6.0'

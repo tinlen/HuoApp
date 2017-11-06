@@ -15,6 +15,7 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
+import com.socks.library.KLog;
 
 import org.litepal.crud.DataSupport;
 
@@ -59,7 +60,7 @@ public class SimpleFragment extends BaseLazyFragment {
     @Override
     protected void onFirstUserVisible() {
         tvTitle.setText(title);
-        LogUtils.i(title,"onFirstUserVisible");
+        KLog.i(title,"onFirstUserVisible");
 
     }
 
@@ -100,12 +101,12 @@ public class SimpleFragment extends BaseLazyFragment {
 
     @Override
     protected void onUserVisible() {
-        LogUtils.i(title,"onUserVisible");
+        KLog.i(title,"onUserVisible");
     }
 
     @Override
     protected void onUserInvisible() {
-        LogUtils.i(title,"onUserInvisible");
+        KLog.i(title,"onUserInvisible");
         OkGo.getInstance().cancelTag(this);
     }
 

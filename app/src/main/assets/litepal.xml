@@ -2,7 +2,7 @@
 <litepal>
     <dbname value="huo" ></dbname>
 
-    <version value="3" ></version>
+    <version value="1" ></version>
 
     <list>
         <!--用户信息-->
