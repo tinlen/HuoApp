@@ -75,6 +75,7 @@ public class SimpleFragment extends BaseLazyFragment {
         });
     }
 
+    //TODO: 数据库操作
     private void getUserFromDb() {
         User users = DataSupport.findFirst(User.class);
 
@@ -90,7 +91,7 @@ public class SimpleFragment extends BaseLazyFragment {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        Toast.makeText(mContext,response.body(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext,response.body(),Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

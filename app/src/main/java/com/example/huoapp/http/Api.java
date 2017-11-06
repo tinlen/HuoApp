@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 
 import com.example.huoapp.util.MD5;
+import com.lzy.okgo.model.HttpParams;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -19,8 +20,8 @@ public class Api {
         return null;
     }
 
-    public static Map<String,String> getCommonHttpParams(Object apiName){
-        WeakHashMap<String,String> httpParams = new WeakHashMap<>();
+    public static HttpParams getCommonHttpParams(Object apiName){
+        HttpParams httpParams = new HttpParams();
         httpParams.put("app_id", SdkConstant.HS_APPID);
         httpParams.put("client_id", SdkConstant.HS_CLIENTID);
         httpParams.put("from", SdkConstant.FROM);

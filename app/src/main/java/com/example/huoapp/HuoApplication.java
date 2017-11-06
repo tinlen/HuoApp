@@ -12,6 +12,7 @@ import com.squareup.leakcanary.LeakCanary;
 import org.litepal.LitePal;
 import org.litepal.LitePalApplication;
 
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -64,6 +65,7 @@ public class HuoApplication extends LitePalApplication{
             initStetho();
         }
     }
+
 
     private void initStetho() {
         Stetho.initializeWithDefaults(this);

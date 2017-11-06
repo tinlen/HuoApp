@@ -153,7 +153,7 @@ public abstract class BaseActivity extends AppCompatActivity{
         return TransitionMode.RIGHT;
     }
 
-    /**Activity跳转---------------------------------------------------*/
+    /**---------------------------------------Activity跳转-----------------------------------------*/
 
     protected void readyGo(Class<?> clazz) {
         Intent intent = new Intent(this, clazz);
