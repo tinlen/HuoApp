@@ -3,16 +3,22 @@ package com.example.huoapp.ui;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseSwipeBackActivity;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
+import com.example.huoapp.model.User;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -24,8 +30,12 @@ public class SimpleFragment extends BaseLazyFragment {
 
     private String title;
 
+
     @BindView(R.id.tv_title)
     Button tvTitle;
+
+    @BindView(R.id.tv_user)
+    TextView tvUser;
 
     public static SimpleFragment newInstance(String title) {
 
@@ -62,6 +72,14 @@ public class SimpleFragment extends BaseLazyFragment {
                 //onGetTest();
             }
         });
+    }
+
+    private void getUserFromDb() {
+        User users = DataSupport.findFirst(User.class);
+
+        if (null != users){
+            tvUser.setText(users.getName() + " : "+ users.getAge());
+        }
     }
 
     //TODO: 测试方法

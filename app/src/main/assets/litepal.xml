@@ -2,11 +2,11 @@
 <litepal>
     <dbname value="huo" ></dbname>
 
-    <version value="1" ></version>
+    <version value="3" ></version>
 
     <list>
         <!--用户信息-->
-        <!--<mapping class=""/>-->
+        <mapping class="com.example.huoapp.model.User"/>
 
     </list>
 </litepal>
