@@ -79,6 +79,9 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.2'
 
+    //数据库orm
+    compile 'org.litepal.android:core:1.6.0'
+
     //百分比布局库
     compile 'com.android.support:percent:26.0.0'
 
@@ -88,6 +91,6 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     // Because RxAndroid releases are few and far between, it is recommended you also
     // explicitly depend on RxJava's latest version for bug fixes and new features.
-    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.6'
 
 }

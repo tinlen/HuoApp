@@ -1,11 +1,15 @@
-package com.example.huoapp;
+package com.example.huoapp.http;
+
 
 import com.example.huoapp.domain.DeviceBean;
+import com.example.huoapp.domain.NotProguard;
 
 /**
- * Created by tinle on 2017/11/2.
+ * Created by liu hong liang on 2016/11/7.
+ * sdk常量
+ *
  */
-
+@NotProguard
 public class SdkConstant {
     //app 是否是正常启动，
     // 经过应用的第一个界面启动的设置为正常启动 1（StartActivity）,

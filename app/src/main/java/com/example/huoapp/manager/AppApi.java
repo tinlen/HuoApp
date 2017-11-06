@@ -1,8 +1,6 @@
 package com.example.huoapp.manager;
 
-import android.text.TextUtils;
-
-import com.example.huoapp.SdkConstant;
+import com.example.huoapp.http.SdkConstant;
 import com.example.huoapp.util.MD5;
 
 import java.util.WeakHashMap;

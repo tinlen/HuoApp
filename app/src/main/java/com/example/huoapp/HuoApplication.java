@@ -1,6 +1,5 @@
 package com.example.huoapp;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -9,6 +8,9 @@ import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.lzy.okgo.OkGo;
 import com.squareup.leakcanary.LeakCanary;
 
+import org.litepal.LitePal;
+import org.litepal.LitePalApplication;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -16,7 +18,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  * Created by tinle on 2017/11/2.
  */
 
-public class HuoApplication extends Application{
+public class HuoApplication extends LitePalApplication{
 
     private static Context context;
 
@@ -25,8 +27,7 @@ public class HuoApplication extends Application{
         super.onCreate();
         context = getApplicationContext();
         initApp();
-        initAndroidUtil();
-        initLog();
+
     }
 
     public static Context getAppContext(){
@@ -34,7 +35,10 @@ public class HuoApplication extends Application{
     }
 
     private void initApp() {
+        LitePal.initialize(this);
         OkGo.getInstance().init(this);
+        initAndroidUtil();
+        initLog();
 
         if (BuildConfig.DEBUG){
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(

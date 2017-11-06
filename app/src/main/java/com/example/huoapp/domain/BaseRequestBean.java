@@ -2,7 +2,7 @@ package com.example.huoapp.domain;
 
 
 import com.example.huoapp.BuildConfig;
-import com.example.huoapp.SdkConstant;
+import com.example.huoapp.http.SdkConstant;
 
 /**
  * Created by liu hong liang on 2016/11/9.
