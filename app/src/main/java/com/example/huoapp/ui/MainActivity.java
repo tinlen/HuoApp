@@ -17,6 +17,10 @@ import com.example.huoapp.base.baseActivity.BaseActivity;
 import com.example.huoapp.manager.AppManager;
 import com.example.huoapp.model.TabEntity;
 import com.example.huoapp.ui.adapter.MainPagerAdapter;
+import com.example.huoapp.ui.game.GameFragment;
+import com.example.huoapp.ui.home.HomeFragment;
+import com.example.huoapp.ui.mine.MineFragment;
+import com.example.huoapp.ui.pupil.PupilFragment;
 import com.example.huoapp.widget.HuoViewPager;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -42,7 +46,7 @@ public class MainActivity extends BaseActivity {
     private int position = 0;
 
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private String[] mTitles = {"游戏", "开服", "搜索", "我的"};
+    private String[] mTitles = {"首页", "游戏", "收徒", "我的"};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
     private int[] mIconUnselectIds = {
@@ -66,9 +70,10 @@ public class MainActivity extends BaseActivity {
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         MainActivityPermissionsDispatcher.getPermissionWithPermissionCheck(this);
 
-        for (String title : mTitles){
-            mFragments.add(SimpleFragment.newInstance(title));
-        }
+        mFragments.add(HomeFragment.newInstance());
+        mFragments.add(GameFragment.newInstance());
+        mFragments.add(PupilFragment.newInstance());
+        mFragments.add(MineFragment.newInstance());
 
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));

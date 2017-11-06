@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HuoApp</string>
     <string name="exit_app">再按一次退出app</string>
+    <string name="sign">签到</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.huoapp.model;
 
+
 import org.litepal.crud.DataSupport;
 
 /**
