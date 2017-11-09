@@ -56,9 +56,21 @@ public class HuoPreference {
                 .apply();
     }
 
+    public static void setAppFlag(String key, long flag) {
+        getAppPreference()
+                .edit()
+                .putLong(key, flag)
+                .apply();
+    }
+
     public static boolean getAppFlag(String key) {
         return getAppPreference()
                 .getBoolean(key, false);
+    }
+
+    public static long getAppFlagLong(String key){
+        return getAppPreference()
+                .getLong(key,0);
     }
 
     public static void addCustomAppProfile(String key, String val) {

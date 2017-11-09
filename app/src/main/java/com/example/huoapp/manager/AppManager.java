@@ -3,6 +3,8 @@ package com.example.huoapp.manager;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -91,5 +93,13 @@ public class AppManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void readyGo(Context context, Class<?> clazz, Bundle bundle) {
+        Intent intent = new Intent(context, clazz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        context.startActivity(intent);
     }
 }

@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/st_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_bounce_enable="false"
+            tl:tl_indicator_color="@color/colorWhite"
+            tl:tl_textSelectColor="@color/colorPrimary"
+            tl:tl_textUnselectColor="@color/colorWhite"
+            tl:tl_bar_color="#029ECD"
+            tl:tl_bar_stroke_color="#029ECD"
+            tl:tl_bar_stroke_width="2dp"
+            tl:tl_indicator_margin_left="2dp"
+            tl:tl_indicator_margin_top="2dp"
+            tl:tl_indicator_margin_right="2dp"
+            tl:tl_indicator_margin_bottom="2dp"
+            tl:tl_textsize="14sp"
+            tl:tl_tab_padding="20dp"/>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pupil"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

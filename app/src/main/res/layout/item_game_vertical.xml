@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+    <com.example.huoapp.widget.RoundImageView
+        android:id="@+id/iv_game_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:type="round"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/tv_game_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_game_icon"
+        android:textColor="#333333"
+        android:textSize="12sp"
+        android:layout_margin="10dp"
+        android:text="火速"/>
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@drawable/bg_game_down_btn"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="下载"/>
+
+</RelativeLayout>

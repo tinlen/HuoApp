@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
 import com.example.huoapp.ui.SwipeDemoActivity;
+import com.example.huoapp.ui.game.GameCommentActivity;
 
 import butterknife.OnClick;
 
@@ -46,5 +47,10 @@ public class HomeFragment extends BaseLazyFragment {
     @OnClick(R.id.tv_sign)
     void action(){
         readyGo(SignActivity.class);
+    }
+
+    @OnClick({R.id.btn_comment})
+    void actionTest(){
+        readyGo(GameCommentActivity.class);
     }
 }

@@ -6,9 +6,41 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="40dp">
 
+        <TextView
+            style="@style/HuoCalendar"
+            android:text="@string/sun"/>
+
+        <TextView
+            style="@style/HuoCalendar"
+            android:text="@string/mon"/>
+
+        <TextView
+            style="@style/HuoCalendar"
+            android:text="@string/tues"/>
+
+        <TextView
+            style="@style/HuoCalendar"
+            android:text="@string/wed"/>
+
+        <TextView
+            style="@style/HuoCalendar"
+            android:text="@string/thur"/>
+
+        <TextView
+            style="@style/HuoCalendar"
+            android:text="@string/fri"/>
+
+        <TextView
+            style="@style/HuoCalendar"
+            android:text="@string/sat"/>
 
     </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
 
 </LinearLayout>

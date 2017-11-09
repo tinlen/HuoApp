@@ -1,6 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/my"
+                android:textColor="@color/colorWhite"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:background="#01849F">
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout_person_info"
+                style="@style/mine_item_layout"
+                android:layout_marginTop="10dp">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:text="@string/person_info"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_my_game"
+                style="@style/mine_item_layout"
+                android:layout_marginTop="10dp">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:text="@string/my_game"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_my_feed"
+                style="@style/mine_item_layout">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:text="@string/my_feed"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_record_detail"
+                style="@style/mine_item_layout"
+                android:layout_marginTop="10dp">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:text="@string/record_detail"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_invited_record"
+                style="@style/mine_item_layout">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:text="@string/invited_record"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_message_record"
+                style="@style/mine_item_layout">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:text="@string/message_record"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_setting"
+                style="@style/mine_item_layout"
+                android:layout_marginBottom="10dp">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:text="@string/setting"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

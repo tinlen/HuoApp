@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,6 +29,19 @@
         <activity android:name=".ui.MainActivity" android:launchMode="singleTask"/>
 
         <activity android:name=".ui.home.SignActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.game.GameDetailsActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.mine.MineGameActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.album.PhotoBrowseActivity"
+            android:theme="@style/PhotoBrowseActivity"/>
+
+        <activity android:name=".ui.game.GameCommentActivity"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.SwipeBack"/>
     </application>
 
