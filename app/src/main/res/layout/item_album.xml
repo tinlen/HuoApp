@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="wrap_content"
+        android:padding="2dp"/>
+
+    <ImageView
+        android:id="@+id/iv_conver"
+        android:background="#8002C8F5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</FrameLayout>

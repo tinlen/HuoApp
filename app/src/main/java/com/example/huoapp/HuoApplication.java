@@ -3,7 +3,6 @@ package com.example.huoapp;
 import android.content.Context;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.example.huoapp.util.BackgroundThread;
 import com.facebook.stetho.Stetho;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.lzy.okgo.OkGo;
@@ -29,12 +28,7 @@ public class HuoApplication extends LitePalApplication{
         super.onCreate();
         context = getApplicationContext();
 
-        BackgroundThread.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                initApp();
-            }
-        },500);
+        initApp();
     }
 
     public static Context getAppContext(){

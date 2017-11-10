@@ -1,11 +1,14 @@
 package com.example.huoapp.ui.home;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
 import com.example.huoapp.ui.SwipeDemoActivity;
+import com.example.huoapp.ui.album.PhotoBrowseActivity;
 import com.example.huoapp.ui.game.GameCommentActivity;
+import com.example.huoapp.ui.test.PhotoSelectActivity;
 
 import butterknife.OnClick;
 
@@ -49,8 +52,17 @@ public class HomeFragment extends BaseLazyFragment {
         readyGo(SignActivity.class);
     }
 
-    @OnClick({R.id.btn_comment})
-    void actionTest(){
-        readyGo(GameCommentActivity.class);
+    @OnClick({R.id.btn_comment,R.id.btn_photo})
+    void actionTest(View view){
+        switch (view.getId()){
+            case R.id.btn_comment:
+
+                readyGo(GameCommentActivity.class);
+                break;
+
+            case R.id.btn_photo:
+                readyGo(PhotoSelectActivity.class);
+                break;
+        }
     }
 }
