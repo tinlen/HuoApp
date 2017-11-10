@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            style="@style/app_bar_text"
+            android:text="@string/setting"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_change_password"
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/change_password"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_clear_cache"
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/clear_cache"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/user_rule"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/contact_us"/>
+    </LinearLayout>
+</LinearLayout>

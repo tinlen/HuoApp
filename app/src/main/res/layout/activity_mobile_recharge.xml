@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            style="@style/app_bar_text"
+            android:text="@string/mobile_recharge"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#333333"
+        android:text="@string/mobile"
+        android:textSize="16sp"
+        android:drawableLeft="@drawable/home_recommend_line"
+        android:drawablePadding="10dp"
+        android:layout_margin="20dp"/>
+
+    <EditText
+        android:id="@+id/et_mobile"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="14sp"
+        android:maxLength="11"
+        android:hint="@string/input_mobile_hint"
+        android:paddingLeft="12dp"
+        android:inputType="number"
+        android:background="@drawable/bg_edittext_mobile"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+
+
+</LinearLayout>

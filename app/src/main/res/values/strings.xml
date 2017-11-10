@@ -15,8 +15,22 @@
     <string name="record_detail">记录明细</string>
     <string name="invited_record">邀请记录</string>
     <string name="message_record">消息记录</string>
-    <string name="setting">设置</string>
     <string name="my">我的</string>
     <string name="mine_game">我的游戏</string>
     <string name="input">输入</string>
+    <string name="withdraw">提现</string>
+    <string name="choice_withdraw_type">选择提现方式</string>
+    <string name="mobile_recharge">手机充值</string>
+    <string name="mobile">手机号</string>
+    <string name="input_mobile_hint">输入手机号</string>
+    <string name="setting">设置</string>
+    <string name="change_password">修改密码</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="user_rule">用户条约</string>
+    <string name="contact_us">联系我们</string>
+    <string name="get_auth_code">获取验证码</string>
+    <string name="please_input_your_moblie">请输入您的手机号</string>
+    <string name="please_input_auth_code">请输入验证码</string>
+    <string name="please_input_your_new_pwd">请输入您的新密码</string>
+    <string name="please_re_input_your_new_pwd">请再次输入您的新密码</string>
 </resources>

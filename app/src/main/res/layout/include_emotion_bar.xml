@@ -42,6 +42,7 @@
             android:background="@null"/>
 
         <TextView
+            android:id="@+id/tv_submit"
             android:layout_alignParentRight="true"
             android:layout_width="60dp"
             android:layout_height="30dp"

@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.example.huoapp.R;
 import com.socks.library.KLog;
 
 /**
@@ -30,7 +32,7 @@ public class EmotionKeyboard {
     private View mEmotionLayout;//表情布局
     private EditText mEditText;//
     private View mContentView;//内容布局view,即除了表情布局或者软键盘布局以外的布局，用于固定bar的高度，防止跳闪
-
+    private ImageButton ibEmotion;
     private EmotionKeyboard(){
 
     }
@@ -92,7 +94,8 @@ public class EmotionKeyboard {
      * @param emotionButton
      * @return
      */
-    public EmotionKeyboard bindToEmotionButton(View emotionButton) {
+    public EmotionKeyboard bindToEmotionButton(final View emotionButton) {
+        this.ibEmotion = (ImageButton) emotionButton;
         emotionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,6 +204,7 @@ public class EmotionKeyboard {
                 mInputManager.showSoftInput(mEditText, 0);
             }
         });
+
     }
 
     /**

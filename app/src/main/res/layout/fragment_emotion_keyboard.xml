@@ -9,6 +9,11 @@
         android:id="@+id/include_emotion_view"
         layout="@layout/include_emotion_bar"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGray"/>
+
     <LinearLayout
         android:id="@+id/ll_emotion_layout"
         android:layout_width="match_parent"

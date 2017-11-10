@@ -43,6 +43,21 @@
         <activity android:name=".ui.game.GameCommentActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.mine.RecordDetailActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.mine.WithdrawActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.mine.SettingActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.mine.ChangePasswordActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.mine.MobileRechargeActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
     </application>
 
 </manifest>

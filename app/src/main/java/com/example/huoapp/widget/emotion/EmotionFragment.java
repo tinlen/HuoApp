@@ -11,10 +11,12 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.SizeUtils;
 import com.example.huoapp.R;
+import com.example.huoapp.listener.IEmotionBarListener;
 import com.example.huoapp.widget.NoHorizontalScrollerViewPager;
 
 import java.util.ArrayList;
@@ -32,8 +34,15 @@ public class EmotionFragment extends Fragment{
     private NoHorizontalScrollerViewPager viewPager;
     private ImageButton ibEmotion;
     private ImageButton ibPic;
+    private TextView tvSubmit;
     private View contentView;
     private EditText editView;
+
+    private IEmotionBarListener listener;
+
+    public void setIEmotionBarListener(IEmotionBarListener listener){
+        this.listener = listener;
+    }
 
     List<Fragment> fragments=new ArrayList<>();
 
@@ -87,6 +96,25 @@ public class EmotionFragment extends Fragment{
         viewPager = view.findViewById(R.id.vp_emotionview_layout);
         ibEmotion = view.findViewById(R.id.ib_emotion);
         ibPic = view.findViewById(R.id.ib_pic);
+        tvSubmit = view.findViewById(R.id.tv_submit);
+
+        ibPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (null != listener){
+                    listener.picClick();
+                }
+            }
+        });
+
+        tvSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (null != listener){
+                    listener.submitClick();
+                }
+            }
+        });
     }
 
     private void replaceFragment(){

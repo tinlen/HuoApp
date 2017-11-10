@@ -59,7 +59,7 @@ public class GameFragment extends BaseLazyFragment {
 
     @Override
     protected void onFirstUserVisible() {
-        multiType = new MultiTypeAdapter(getTestData());
+        multiType = new MultiTypeAdapter();
 
         multiType.register(GameBanner.class,new GameBannerViewBinder());
         multiType.register(GameShare.class,new GameShareViewBinder());
@@ -85,6 +85,14 @@ public class GameFragment extends BaseLazyFragment {
                 },3000);
             }
         });
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                multiType.setItems(getTestData());
+                multiType.notifyDataSetChanged();
+            }
+        },1500);
     }
 
     @Override
@@ -104,11 +112,9 @@ public class GameFragment extends BaseLazyFragment {
     private List<Object> getTestData(){
         List<Object> objects = new ArrayList<>();
         List<String> banner = new ArrayList<>();
-        banner.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510135445321&di=da971be6c7083eb1318dafb77e99f0c9&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe61190ef76c6a7ef38b3161bf6faaf51f3de6672.jpg");
-        banner.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510135655582&di=0c9ceb4f5c5ef24c3cedfda921851be8&imgtype=0&src=http%3A%2F%2Fimg5.web07.cn%2FUPics%2FBizhi%2F2016%2F1209%2F240218091041431.jpg");
-        banner.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510135445321&di=da971be6c7083eb1318dafb77e99f0c9&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fe61190ef76c6a7ef38b3161bf6faaf51f3de6672.jpg");
-        banner.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510135655582&di=0c9ceb4f5c5ef24c3cedfda921851be8&imgtype=0&src=http%3A%2F%2Fimg5.web07.cn%2FUPics%2FBizhi%2F2016%2F1209%2F240218091041431.jpg");
-
+        banner.add("http://d.ifengimg.com/mw978_mh598/p3.ifengimg.com/a/2017_45/1912e011d196610_size1285_w1024_h791.jpg");
+        banner.add("http://d.ifengimg.com/mw978_mh598/p1.ifengimg.com/a/2017_45/bbef55c4f090a90_size1106_w1024_h791.jpg");
+        banner.add("http://p1.ifengimg.com/a/2017_44/aa64d943b9ad0e9_size520_w1000_h667.jpg");
         objects.add(new GameBanner(banner));
 
         objects.add(new GameShare());

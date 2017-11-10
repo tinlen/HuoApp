@@ -1,5 +1,6 @@
 package com.example.huoapp.util;
 
+import android.content.Context;
 import android.os.Environment;
 
 import java.io.BufferedInputStream;
@@ -71,5 +72,46 @@ public class FileUtils {
             }
 
         }
+    }
+
+    public static long getDirectorySize(File directory) {
+        if(!directory.exists()) {
+            return 0L;
+        } else if(!directory.isDirectory()) {
+            return directory.length();
+        } else {
+            long directorySize = 0L;
+            File[] var3 = directory.listFiles();
+            int var4 = var3.length;
+
+            for(int var5 = 0; var5 < var4; ++var5) {
+                File file = var3[var5];
+                directorySize += getDirectorySize(file);
+            }
+
+            return directorySize;
+        }
+    }
+
+    public static void clearCache(Context context){
+        clearDirectory(context.getCacheDir());
+    }
+
+    public static void clearDirectory(File directory) {
+        if(directory.exists() && directory.isDirectory()) {
+            File[] var1 = directory.listFiles();
+            int var2 = var1.length;
+
+            for(int var3 = 0; var3 < var2; ++var3) {
+                File file = var1[var3];
+                if(file.exists() && file.isFile()) {
+                    file.delete();
+                } else if(file.exists() && file.isDirectory()) {
+                    clearDirectory(file);
+                    file.delete();
+                }
+            }
+        }
+
     }
 }

@@ -11,12 +11,8 @@
         android:layout_height="50dp">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/mine_game"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textColor="@color/colorWhite"/>
+            style="@style/app_bar_text"
+            android:text="@string/mine_game"/>
     </RelativeLayout>
 
     <com.flyco.tablayout.SlidingTabLayout

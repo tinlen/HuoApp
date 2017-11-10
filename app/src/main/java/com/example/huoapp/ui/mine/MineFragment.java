@@ -44,6 +44,7 @@ public class MineFragment extends BaseLazyFragment {
     }
 
     @OnClick({
+            R.id.ll_withdraw,
             R.id.layout_person_info,
             R.id.layout_my_game,
             R.id.layout_my_feed,
@@ -54,30 +55,34 @@ public class MineFragment extends BaseLazyFragment {
 
     void actionLayout(View view){
         switch (view.getId()){
-            case R.id.layout_person_info:
+
+            case R.id.ll_withdraw://提现
+                readyGo(WithdrawActivity.class);
+                break;
+            case R.id.layout_person_info://个人资料
 
                 break;
-            case R.id.layout_my_game:
+            case R.id.layout_my_game://我的游戏
                 readyGo(MineGameActivity.class);
                 break;
 
-            case R.id.layout_my_feed:
+            case R.id.layout_my_feed://我的动态
 
                 break;
 
-            case R.id.layout_record_detail:
-
+            case R.id.layout_record_detail://记录明细
+                readyGo(RecordDetailActivity.class);
                 break;
-            case R.id.layout_invited_record:
-
-                break;
-
-            case R.id.layout_message_record:
+            case R.id.layout_invited_record://邀请记录
 
                 break;
 
-            case R.id.layout_setting:
+            case R.id.layout_message_record://消息记录
 
+                break;
+
+            case R.id.layout_setting://设置
+                readyGo(SettingActivity.class);
                 break;
 
             default:
