@@ -65,6 +65,7 @@ public class PhotoGridFragment extends Fragment {
 
             @Override
             public void onFinish() {
+                HuoPreference.setAppFlag("has_scan_img", true);
                 initView();
             }
 

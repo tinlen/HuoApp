@@ -20,7 +20,7 @@ public class SplashActivity extends BaseActivity {
     @BindView(R.id.tv_count)
     TextView tvCount;
 
-    private int i = 4;
+    private int i = 2;
     Handler handler = new Handler();
 
     @Override

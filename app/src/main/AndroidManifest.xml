@@ -59,8 +59,12 @@
         <activity android:name=".ui.mine.MobileRechargeActivity"
             android:theme="@style/AppTheme.SwipeBack"/>
 
-        <activity android:name=".ui.test.PhotoSelectActivity"
+        <activity android:name=".ui.album.PhotoSelectActivity"
             android:theme="@style/AppTheme.SwipeBack"/>
+
+        <activity android:name=".ui.mine.InfoChangeActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
     </application>
 
 </manifest>

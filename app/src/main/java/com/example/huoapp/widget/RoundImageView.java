@@ -80,6 +80,7 @@ public class RoundImageView extends ImageView {
         mMatrix = new Matrix();
         mBitmapPaint = new Paint();
         mBitmapPaint.setAntiAlias(true);
+        mBitmapPaint.setColor(Color.WHITE);
 
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.RoundImageView);

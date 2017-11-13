@@ -182,11 +182,16 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 app:type="circle"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/shoutu_1"/>
 
             <TextView
                 style="@style/mine_item_title"
                 android:text="晒单收徒"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_right"/>
 
         </LinearLayout>
 
@@ -197,11 +202,16 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 app:type="circle"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/shoutu_2"/>
 
             <TextView
                 style="@style/mine_item_title"
                 android:text="二维码收徒"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_right"/>
 
         </LinearLayout>
 

@@ -69,10 +69,12 @@
 
         <TextView
             android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_gravity="center"
             android:textSize="12sp"
             android:textColor="@color/colorPrimary"
+            android:drawableTop="@mipmap/game_icon_apply"
             android:text="管理"/>
 
         <TextView
@@ -89,9 +91,11 @@
 
         <TextView
             android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
             android:textSize="12sp"
+            android:drawableTop="@mipmap/game_icon_discuss"
             android:textColor="@color/colorPrimary"
             android:text="点评"/>
 

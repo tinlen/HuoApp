@@ -1,11 +1,16 @@
 package com.example.huoapp.ui.mine;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 
+import com.blankj.utilcode.util.SizeUtils;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
+import com.example.huoapp.util.HuoUtils;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -13,6 +18,8 @@ import butterknife.OnClick;
  */
 
 public class MineFragment extends BaseLazyFragment {
+    @BindView(R.id.rl_top)
+    RelativeLayout rlTop;
 
     public static MineFragment newInstance() {
 
@@ -27,6 +34,15 @@ public class MineFragment extends BaseLazyFragment {
         return R.layout.fragment_mine;
     }
 
+
+    @Override
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            int statusBarHeight = HuoUtils.getStatusBarHeight(mContext);
+            rlTop.getLayoutParams().height = statusBarHeight + SizeUtils.dp2px(50);
+            rlTop.setPadding(0,statusBarHeight,0,0);
+        }
+    }
 
     @Override
     protected void onFirstUserVisible() {
@@ -60,7 +76,7 @@ public class MineFragment extends BaseLazyFragment {
                 readyGo(WithdrawActivity.class);
                 break;
             case R.id.layout_person_info://个人资料
-
+                readyGo(InfoChangeActivity.class);
                 break;
             case R.id.layout_my_game://我的游戏
                 readyGo(MineGameActivity.class);

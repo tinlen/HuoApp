@@ -6,15 +6,18 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/ll_top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/gradient_bg">
 
-        <ImageView
+        <ImageButton
             android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:padding="8dp"
-            android:src="@android:drawable/ic_menu_sort_by_size"/>
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerInside"
+            android:background="@color/transparent"
+            android:src="@mipmap/home_apply"/>
 
         <TextView
             android:layout_width="0dp"
@@ -30,11 +33,14 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/bg_game_search"/>
 
-        <ImageView
+        <TextView
             android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:padding="8dp"
-            android:src="@android:drawable/ic_menu_search"/>
+            android:text="@string/search"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    android:showDividers="middle"
+    android:divider="@drawable/line_horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@mipmap/nav_back"/>
+
+        <TextView
+            style="@style/app_bar_text"
+            android:text="@string/info_change"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/via"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/name"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/sex"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/phone"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_right"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/mine_item_layout">
+
+        <TextView
+            style="@style/mine_item_title"
+            android:text="@string/wechat"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_right"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="小贴士：新手奖励已经领取1.7元，还可以领取3.6元，快去完成吧"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_bg"
+        android:layout_margin="20dp"
+        android:text="@string/save"/>
+</LinearLayout>

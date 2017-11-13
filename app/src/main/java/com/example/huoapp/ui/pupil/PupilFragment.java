@@ -1,12 +1,16 @@
 package com.example.huoapp.ui.pupil;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.widget.LinearLayout;
 
+import com.blankj.utilcode.util.SizeUtils;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
 import com.example.huoapp.ui.adapter.MainPagerAdapter;
+import com.example.huoapp.util.HuoUtils;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 
@@ -20,6 +24,8 @@ import butterknife.BindView;
  */
 
 public class PupilFragment extends BaseLazyFragment {
+    @BindView(R.id.ll_top)
+    LinearLayout llTop;
     @BindView(R.id.st_bar)
     SegmentTabLayout stBar;
     @BindView(R.id.vp_pupil)
@@ -44,6 +50,13 @@ public class PupilFragment extends BaseLazyFragment {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            int statusBarHeight = HuoUtils.getStatusBarHeight(mContext);
+            llTop.getLayoutParams().height = statusBarHeight + SizeUtils.dp2px(50);
+            llTop.setPadding(0,statusBarHeight,0,0);
+        }
+
         stBar.setTabData(titles);
 
         mFragments = new ArrayList<>();

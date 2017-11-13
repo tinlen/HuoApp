@@ -1,13 +1,18 @@
 package com.example.huoapp.ui.game;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Size;
+import android.widget.LinearLayout;
 
+import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.SizeUtils;
+import com.example.huoapp.HuoApplication;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
 import com.example.huoapp.ui.game.game_adapter.GameBanner;
@@ -19,6 +24,7 @@ import com.example.huoapp.ui.game.game_adapter.GameShare;
 import com.example.huoapp.ui.game.game_adapter.GameShareViewBinder;
 import com.example.huoapp.ui.game.game_adapter.GameNewOrder;
 import com.example.huoapp.ui.game.game_adapter.GameNewOrderViewBinder;
+import com.example.huoapp.util.HuoUtils;
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 import com.yqritc.recyclerviewflexibledivider.VerticalDividerItemDecoration;
 
@@ -38,6 +44,8 @@ public class GameFragment extends BaseLazyFragment {
     SwipeRefreshLayout refreshLayout;
     @BindView(R.id.rv_game)
     RecyclerView rvGame;
+    @BindView(R.id.ll_top)
+    LinearLayout llTop;
 
     private MultiTypeAdapter multiType;
 
@@ -55,6 +63,15 @@ public class GameFragment extends BaseLazyFragment {
     @Override
     protected int getContentViewLayoutId() {
         return R.layout.fragment_game;
+    }
+
+    @Override
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            int statusBarHeight = HuoUtils.getStatusBarHeight(mContext);
+            llTop.getLayoutParams().height = statusBarHeight + SizeUtils.dp2px(50);
+            llTop.setPadding(0,statusBarHeight,0,0);
+        }
     }
 
     @Override

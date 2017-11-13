@@ -29,6 +29,10 @@ public class SettingActivity extends BaseSwipeBackActivity {
     @OnClick({R.id.ll_change_password,R.id.ll_clear_cache})
     void actionClick(View view){
         switch (view.getId()){
+            case R.id.iv_back:
+                finish();
+                break;
+
             case R.id.ll_change_password:
                 readyGo(ChangePasswordActivity.class);
                 break;

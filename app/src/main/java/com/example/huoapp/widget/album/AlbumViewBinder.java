@@ -44,7 +44,7 @@ public class AlbumViewBinder extends ItemViewBinder<ImageInfo, AlbumViewBinder.V
 
     @Override
     protected void onBindViewHolder(@NonNull final ViewHolder holder, @NonNull final ImageInfo album) {
-        Glide.with(context).load(album.thumbnailPath).into(holder.iv);
+        Glide.with(context).load(album.thumbnailPath).load(album.getImagePath()).into(holder.iv);
 
         holder.iv.setOnClickListener(new View.OnClickListener() {
             @Override

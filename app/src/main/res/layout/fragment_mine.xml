@@ -4,65 +4,78 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
+    <RelativeLayout
+        android:id="@+id/rl_top"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@color/colorPrimary">
+        android:layout_height="50dp"
+        android:background="@drawable/gradient_bg">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/my"
-            android:textColor="@color/colorWhite"
-            android:gravity="center"
-            android:textSize="16sp"/>
+            style="@style/app_bar_text"
+            android:text="@string/my"/>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom"
-            android:background="#01849F">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_withdraw"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="right|center_vertical"
-            android:background="@drawable/view_withdraw_bg"
-            android:orientation="horizontal"
-            android:paddingLeft="2dp"
-            android:gravity="center_vertical">
-
-            <com.example.huoapp.widget.RoundImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@mipmap/ic_launcher"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorWhite"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textSize="14sp"
-                android:text="@string/withdraw"/>
-
-        </LinearLayout>
-
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:text="明细"
+            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="14dp"/>
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp">
+        android:layout_marginTop="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:background="@drawable/gradient_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:background="#01849F">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_withdraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/view_withdraw_bg"
+                    android:orientation="horizontal"
+                    android:paddingLeft="2dp"
+                    android:gravity="center_vertical">
+
+                    <com.example.huoapp.widget.RoundImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@mipmap/ic_launcher"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textSize="14sp"
+                        android:text="@string/withdraw"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
 
             <LinearLayout
                 android:id="@+id/layout_person_info"
@@ -73,14 +86,20 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:type="circle"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/mine_icon_information"/>
                 <TextView
                     style="@style/mine_item_title"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/person_info"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right"/>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layout_my_game"
+                android:id="@+id/layout_message_record"
                 style="@style/mine_item_layout"
                 android:layout_marginTop="10dp">
 
@@ -88,10 +107,36 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:type="circle"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/mine_icon_message"/>
                 <TextView
                     style="@style/mine_item_title"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/message_record"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_my_game"
+                style="@style/mine_item_layout">
+
+                <com.example.huoapp.widget.RoundImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:type="circle"
+                    android:src="@mipmap/mine_icon_game"/>
+                <TextView
+                    style="@style/mine_item_title"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/my_game"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right"/>
             </LinearLayout>
 
             <LinearLayout
@@ -102,10 +147,16 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:type="circle"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/mine_icon_dynamic"/>
                 <TextView
                     style="@style/mine_item_title"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/my_feed"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right"/>
             </LinearLayout>
 
             <LinearLayout
@@ -117,10 +168,16 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:type="circle"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/mine_icon_detail"/>
                 <TextView
                     style="@style/mine_item_title"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/record_detail"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right"/>
             </LinearLayout>
 
             <LinearLayout
@@ -131,24 +188,17 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:type="circle"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/mine_icon_invation"/>
                 <TextView
                     style="@style/mine_item_title"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/invited_record"/>
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layout_message_record"
-                style="@style/mine_item_layout">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right"/>
 
-                <com.example.huoapp.widget.RoundImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    app:type="circle"
-                    android:src="@mipmap/ic_launcher"/>
-                <TextView
-                    style="@style/mine_item_title"
-                    android:text="@string/message_record"/>
             </LinearLayout>
 
             <LinearLayout
@@ -160,10 +210,16 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     app:type="circle"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/mine_icon_isetting"/>
                 <TextView
                     style="@style/mine_item_title"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/setting"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right"/>
             </LinearLayout>
         </LinearLayout>
 

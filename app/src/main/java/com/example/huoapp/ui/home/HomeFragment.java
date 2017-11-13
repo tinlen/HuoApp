@@ -5,10 +5,8 @@ import android.view.View;
 
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
-import com.example.huoapp.ui.SwipeDemoActivity;
-import com.example.huoapp.ui.album.PhotoBrowseActivity;
+import com.example.huoapp.ui.album.PhotoSelectActivity;
 import com.example.huoapp.ui.game.GameCommentActivity;
-import com.example.huoapp.ui.test.PhotoSelectActivity;
 
 import butterknife.OnClick;
 

@@ -41,4 +41,11 @@
     <string name="format_time_minute" formatted="false">%s分钟前</string>
     <string name="format_time_sec">刚刚</string>
     <string name="via">头像</string>
+    <string name="search">搜索</string>
+    <string name="info_change">资料修改</string>
+    <string name="name">名字</string>
+    <string name="sex">性别</string>
+    <string name="phone">手机</string>
+    <string name="wechat">微信</string>
+    <string name="save">保存</string>
 </resources>

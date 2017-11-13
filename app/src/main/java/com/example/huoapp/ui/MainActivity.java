@@ -21,10 +21,12 @@ import com.example.huoapp.ui.game.GameFragment;
 import com.example.huoapp.ui.home.HomeFragment;
 import com.example.huoapp.ui.mine.MineFragment;
 import com.example.huoapp.ui.pupil.PupilFragment;
+import com.example.huoapp.util.HuoUtils;
 import com.example.huoapp.widget.HuoViewPager;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 
@@ -35,6 +37,7 @@ import permissions.dispatcher.OnPermissionDenied;
 import permissions.dispatcher.OnShowRationale;
 import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.RuntimePermissions;
+import qiu.niorgai.StatusBarCompat;
 
 @RuntimePermissions
 public class MainActivity extends BaseActivity {
@@ -50,14 +53,15 @@ public class MainActivity extends BaseActivity {
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
     private int[] mIconUnselectIds = {
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+            R.mipmap.tab_home_default, R.mipmap.tab_game_default,
+            R.mipmap.tab_shoutu_default, R.mipmap.tab_mine_default};
     private int[] mIconSelectIds = {
-            R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round,
-            R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round};
+            R.mipmap.tab_home_selected, R.mipmap.tab_game_selected,
+            R.mipmap.tab_shoutu_selected, R.mipmap.tab_mine_selected};
 
     @Override
     protected int getContentViewLayoutId() {
+        StatusBarCompat.translucentStatusBar(this,true);
         return R.layout.activity_main;
     }
 
@@ -69,7 +73,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
         MainActivityPermissionsDispatcher.getPermissionWithPermissionCheck(this);
-
         mFragments.add(HomeFragment.newInstance());
         mFragments.add(GameFragment.newInstance());
         mFragments.add(PupilFragment.newInstance());
@@ -112,6 +115,7 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
     }
 
     @Override

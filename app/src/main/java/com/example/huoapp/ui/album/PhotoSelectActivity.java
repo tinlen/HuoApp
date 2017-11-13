@@ -1,4 +1,4 @@
-package com.example.huoapp.ui.test;
+package com.example.huoapp.ui.album;
 
 import android.os.Bundle;
 
@@ -37,7 +37,7 @@ public class PhotoSelectActivity extends BaseSwipeBackActivity {
 
     @Subscribe
     public void getEvent(ImageInfo imageInfo){
-        Glide.with(this).load(imageInfo.thumbnailPath).into(ivHead);
+        Glide.with(this).load(imageInfo.thumbnailPath).load(imageInfo.getImagePath()).into(ivHead);
     }
 
     @Override
