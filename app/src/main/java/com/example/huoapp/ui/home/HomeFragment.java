@@ -1,13 +1,18 @@
 package com.example.huoapp.ui.home;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 
+import com.blankj.utilcode.util.SizeUtils;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseFragment.BaseLazyFragment;
 import com.example.huoapp.ui.album.PhotoSelectActivity;
 import com.example.huoapp.ui.game.GameCommentActivity;
+import com.example.huoapp.util.HuoUtils;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -15,6 +20,9 @@ import butterknife.OnClick;
  */
 
 public class HomeFragment extends BaseLazyFragment {
+
+    @BindView(R.id.rl_top)
+    RelativeLayout rlTop;
 
     public static HomeFragment newInstance() {
 
@@ -24,6 +32,16 @@ public class HomeFragment extends BaseLazyFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+    @Override
+    protected void initViewsAndEvents(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            int statusBarHeight = HuoUtils.getStatusBarHeight(mContext);
+            rlTop.getLayoutParams().height = statusBarHeight + SizeUtils.dp2px(50);
+            rlTop.setPadding(0,statusBarHeight,0,0);
+        }
+    }
+
     @Override
     protected int getContentViewLayoutId() {
         return R.layout.fragment_home;

@@ -8,6 +8,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Size;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.blankj.utilcode.util.ScreenUtils;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
@@ -120,6 +122,15 @@ public class GameFragment extends BaseLazyFragment {
     @Override
     protected void onUserInvisible() {
 
+    }
+
+    @OnClick({R.id.tv_search})
+    void actionClick(View view){
+        switch (view.getId()){
+            case R.id.tv_search:
+                readyGo(SearchGameActivity.class);
+                break;
+        }
     }
 
     /**

@@ -12,24 +12,25 @@
         android:background="@drawable/gradient_bg">
 
         <ImageButton
+            android:id="@+id/ib_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
             android:scaleType="centerInside"
             android:background="@color/transparent"
-            android:src="@mipmap/home_apply"/>
+            android:src="@mipmap/nav_back"/>
 
         <TextView
-            android:id="@+id/tv_search"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:textColor="#888888"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:textSize="12sp"
             android:text="输入游戏名字进行搜索"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:paddingLeft="20dp"
             android:background="@drawable/bg_game_search"/>
 
         <TextView
@@ -40,7 +41,6 @@
             android:textColor="@color/colorWhite"
             android:gravity="center"
             android:textSize="16sp"/>
-
     </LinearLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
@@ -49,15 +49,9 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_game"
+            android:id="@+id/rv_keyword"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="10dp"
-            android:clipToPadding="false"
-            android:clipChildren="false">
-
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"/>
 
     </android.support.v4.widget.SwipeRefreshLayout>
-
 </LinearLayout>

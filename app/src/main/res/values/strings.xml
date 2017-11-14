@@ -48,4 +48,6 @@
     <string name="phone">手机</string>
     <string name="wechat">微信</string>
     <string name="save">保存</string>
+    <string name="detail">明细</string>
+    <string name="clear">清空</string>
 </resources>

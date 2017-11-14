@@ -65,6 +65,9 @@
         <activity android:name=".ui.mine.InfoChangeActivity"
             android:theme="@style/AppTheme.SwipeBack"/>
 
+        <activity android:name=".ui.game.SearchGameActivity"
+            android:theme="@style/AppTheme.SwipeBack"/>
+
     </application>
 
 </manifest>

@@ -1,13 +1,17 @@
 package com.example.huoapp.ui.home;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.SizeUtils;
 import com.example.huoapp.R;
 import com.example.huoapp.base.baseActivity.BaseSwipeBackActivity;
+import com.example.huoapp.util.HuoUtils;
 import com.example.huoapp.widget.calendar.CustomDayView;
 import com.example.huoapp.widget.calendar.Utils;
 import com.example.huoapp.widget.calendar.component.CalendarAttr;
@@ -23,6 +27,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import qiu.niorgai.StatusBarCompat;
 
 /**
  * 签到
@@ -34,6 +39,8 @@ public class SignActivity extends BaseSwipeBackActivity {
     TextView tvDate;
     @BindView(R.id.vp_calendar)
     MonthPager monthPager;
+    @BindView(R.id.rl_top)
+    RelativeLayout rlTop;
 
     private ArrayList<Calendar> currentCalendars = new ArrayList<>();
     private CalendarViewAdapter calendarAdapter;
@@ -46,11 +53,19 @@ public class SignActivity extends BaseSwipeBackActivity {
 
     @Override
     protected int getContentViewLayoutId() {
+        StatusBarCompat.translucentStatusBar(this,true);
         return R.layout.activity_sign;
     }
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            int statusBarHeight = HuoUtils.getStatusBarHeight(this);
+            rlTop.getLayoutParams().height = statusBarHeight + SizeUtils.dp2px(50);
+            rlTop.setPadding(0,statusBarHeight,0,0);
+        }
+
         monthPager.setViewheight(Utils.dpi2px(this,270));
         initCurrentDate();
         initCalendarView();
