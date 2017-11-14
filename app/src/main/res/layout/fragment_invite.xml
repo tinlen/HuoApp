@@ -96,6 +96,7 @@
                 android:paddingRight="10dp"
                 android:layout_marginTop="4dp"
                 android:lineSpacingExtra="4dp"
+                android:ellipsize="end"
                 android:text="你的回话凌乱着 在这个时刻我想起喷泉旁的白鸽 甜蜜散落了情绪莫名的拉扯 我还爱你呢而你断断续续唱着歌 假作没事了时间过了 走了 爱情面临选择你冷了 倦了 我哭了"/>
 
 
@@ -186,6 +187,7 @@
 
             <TextView
                 style="@style/mine_item_title"
+                android:layout_marginLeft="10dp"
                 android:text="晒单收徒"/>
 
             <ImageView
@@ -206,6 +208,7 @@
 
             <TextView
                 style="@style/mine_item_title"
+                android:layout_marginLeft="10dp"
                 android:text="二维码收徒"/>
 
             <ImageView

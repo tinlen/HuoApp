@@ -1,12 +1,18 @@
 package com.example.huoapp.ui;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -21,14 +27,14 @@ import com.example.huoapp.ui.game.GameFragment;
 import com.example.huoapp.ui.home.HomeFragment;
 import com.example.huoapp.ui.mine.MineFragment;
 import com.example.huoapp.ui.pupil.PupilFragment;
-import com.example.huoapp.util.HuoUtils;
 import com.example.huoapp.widget.HuoViewPager;
+import com.example.huoapp.widget.dialog.CommonDialog;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.socks.library.KLog;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import permissions.dispatcher.NeedsPermission;
@@ -58,6 +64,7 @@ public class MainActivity extends BaseActivity {
     private int[] mIconSelectIds = {
             R.mipmap.tab_home_selected, R.mipmap.tab_game_selected,
             R.mipmap.tab_shoutu_selected, R.mipmap.tab_mine_selected};
+    private CommonDialog commonDialog;
 
     @Override
     protected int getContentViewLayoutId() {
@@ -116,6 +123,48 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        if (isNoOption() && !isNoSwitch()){
+            commonDialog = CommonDialog
+                    .newInstance()
+                    .setContent("需要获取您的app运营状态，点击确认开启权限。")
+                    .hideCancel()
+                    .setConfirm("立即前往设置")
+                    .setConfirmListener(new CommonDialog.IConfirmListener() {
+                        @Override
+                        public void onConfirm() {
+                            openUsageAccess();
+                        }
+                    });
+            commonDialog.show(getSupportFragmentManager(),"common");
+        }
+
+    }
+
+    private boolean isNoOption() {
+        PackageManager packageManager = getApplicationContext()
+                .getPackageManager();
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private boolean isNoSwitch() {
+        long ts = System.currentTimeMillis();
+        @SuppressLint("WrongConstant") UsageStatsManager usageStatsManager = (UsageStatsManager) getApplicationContext()
+                .getSystemService("usagestats");
+        List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(
+                UsageStatsManager.INTERVAL_BEST, 0, ts);
+        if (queryUsageStats == null || queryUsageStats.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    private void openUsageAccess(){
+        Intent intent = new Intent( Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        startActivity(intent);
     }
 
     @Override

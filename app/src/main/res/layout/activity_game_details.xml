@@ -27,6 +27,7 @@
                 android:layout_height="match_parent"
                 android:clipChildren="false"
                 android:clipToPadding="false"
+                android:background="@color/colorWhite"
                 tl:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
                 <include layout="@layout/layout_game_head"/>
@@ -37,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:alpha="0"
-                    android:background="@android:color/white"
+                    android:background="@color/colorPrimary"
                     android:tag="toolbar"
                     tl:layout_collapseMode="pin"
                     tl:popupTheme="@style/Widget.AppCompat.Toolbar" >
@@ -49,7 +50,7 @@
                         android:textSize="18sp"
                         android:visibility="gone"
                         android:gravity="center"
-                        android:textColor="#333333"/>
+                        android:textColor="@color/colorWhite"/>
 
                 </android.support.v7.widget.Toolbar>
 

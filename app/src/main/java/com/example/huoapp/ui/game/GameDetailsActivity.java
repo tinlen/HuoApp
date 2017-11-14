@@ -33,7 +33,7 @@ public class GameDetailsActivity extends BaseSwipeBackActivity {
     TextView tvGameTitle;
 
 
-    private String[] mTitles = {"评论", "礼包", "赚区"};
+    private String[] mTitles = {"热评", "开服", "礼包"};
     private List<Fragment> fragments = new ArrayList<>();
 
 
